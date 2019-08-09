@@ -1,0 +1,30 @@
+# Server配置
+server:
+  port: 8088
+
+spring:
+  application:
+    name: service-zuul
+
+# 注册中心配置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+# 日志配置
+logging:
+  file: log/zuul-server-hystrix.log
+  level:
+    com.ktjr: debug
+    org.springfromework.web: info
+
+# 路由配置
+zuul:
+  routes:
+    ribbon:
+      path: /r/**
+      serviceId: service-ribbon
+    feign:
+      path: /f/**
+      serviceId: service-feign

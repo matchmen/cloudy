@@ -1,0 +1,27 @@
+# Server配置
+server:
+  port: 8081
+
+spring:
+  application:
+    name: service-hello
+
+# 注册中心配置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+# actuator/info显示的信息
+info:
+  name: service-a
+  company: www.ktjr.com
+  version: 0.0.1-SNAPSHOT
+
+
+# 日志配置
+logging:
+  file: log/service-A.log
+  level:
+    com.ktjr: debug
+    org.springfromework.web: info

@@ -1,0 +1,25 @@
+# Server配置
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eurka-server
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    #是否将eureka自身作为应用注册到eureka注册中心
+    registerWithEureka: false
+    #是否需要从注册中心获取服务列表
+    fetchRegistry: false
+    serviceUrl:
+      #服务注册地址
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    #Eureka自我保护机制,为true表示开,false表示关,默认为开
+    enable-self-preservation: false
+
+
+
